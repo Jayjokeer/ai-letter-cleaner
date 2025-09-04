@@ -17,6 +17,11 @@ export function buildPrompt(args: { originalText: string; type?: string; options
   }
   lines.push('If any data appears missing, mark as [MISSING DATA]. Do not add unrelated commentary.');
   lines.push('\nUSER TEXT START\n' + originalText + '\nUSER TEXT END\n');
+  lines.push(`Tone: ${tone}.`);
+  lines.push('Be concise and precise. Use proper grammar and punctuation.');
+  lines.push('Respond in the same language as the input text.');
+  lines.push('If the input text is not in English, also provide an English translation of the CLEANED section, labeled CLEANED_ENGLISH.');
+  lines.push('\nBegin.\n');
 
   return lines.join('\n');
 }
